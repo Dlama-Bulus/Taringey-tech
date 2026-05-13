@@ -19,7 +19,6 @@
             line-height: 1.6;
         }
         
-        /* Navbar */
         nav {
             position: fixed;
             top: 0;
@@ -27,7 +26,7 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #334155;
-            padding: 16px 20px;
+            padding: 12px 20px;
             z-index: 1000;
         }
         
@@ -40,6 +39,18 @@
         }
         
         .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        
+        .nav-logo span {
             font-size: 22px;
             font-weight: 800;
             color: #f59e0b;
@@ -62,7 +73,6 @@
             color: #f59e0b;
         }
         
-        /* Sections */
         section {
             padding: 100px 20px;
         }
@@ -72,24 +82,17 @@
             margin: 0 auto;
         }
         
-        /* Home */
         #home {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             text-align: center;
             padding-top: 160px;
         }
         
-        .logo {
+        .hero-logo {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             border-radius: 20px;
             margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
             box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
         }
         
@@ -114,7 +117,6 @@
             color: #f59e0b;
         }
         
-        /* Services */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -141,7 +143,6 @@
             font-size: 22px;
         }
         
-        /* Dashboard Stats */
         #dashboard {
             background: #1e293b;
         }
@@ -151,10 +152,6 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             text-align: center;
-        }
-        
-        .stat {
-            padding: 30px;
         }
         
         .stat-number {
@@ -169,7 +166,6 @@
             font-size: 16px;
         }
         
-        /* Contact */
         .contact-box {
             background: #1e293b;
             border: 2px solid #f59e0b;
@@ -224,19 +220,16 @@
             h1 {
                 font-size: 36px;
             }
-            h2 {
-                font-size: 28px;
-            }
-            .nav-links li:nth-child(3) {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="nav-logo">Taringey</div>
+            <div class="nav-logo">
+                <img src="/static/logo.png" alt="Taringey Tech Logo">
+                <span>Taringey</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -248,7 +241,7 @@
     
     <section id="home">
         <div class="container">
-            <div class="logo">T</div>
+            <img src="/static/logo.png" alt="Taringey Tech Logo" class="hero-logo">
             <h1>Taringey Tech Contracting</h1>
             <p class="subtitle">Professional building, renovation, and contracting services across Tanzania. 
             We turn your vision into solid structures, on time and on budget.</p>
@@ -307,11 +300,11 @@
                 <p>Get a free quote within 24 hours. No obligation, just honest pricing.</p>
                 
                 <div class="contact-buttons">
-                    <a href="mailto:bulusdlama2023@gmail.com" class="btn btn-primary">Email Us</a>
+                    <a href="mailto:bulusdlama2022@gmail.com" class="btn btn-primary">Email Us</a>
                     <a href="https://wa.me/2348135584889" class="btn btn-whatsapp">WhatsApp</a>
                 </div>
                 
-                <p style="margin-top: 20px; color: #94a3b8;">Call: +25348135584889</p>
+                <p style="margin-top: 20px; color: #94a3b8;">Call: +2348135584889</p>
             </div>
         </div>
     </section>
