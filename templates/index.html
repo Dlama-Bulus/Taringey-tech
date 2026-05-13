@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taringey Tech - Construction & Contracting</title>
+    <title>Taringey Tech Contracting</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
         
         body {
@@ -18,58 +19,106 @@
             line-height: 1.6;
         }
         
-        .hero {
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            padding: 16px 20px;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #f59e0b;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Home */
+        #home {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            padding: 80px 20px;
             text-align: center;
+            padding-top: 160px;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            border-radius: 16px;
+            border-radius: 20px;
             margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 40px;
             font-weight: bold;
             box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
         }
         
         h1 {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 800;
             margin-bottom: 16px;
             color: #f59e0b;
         }
         
         .subtitle {
-            font-size: 18px;
+            font-size: 20px;
             color: #94a3b8;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 40px;
         }
         
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
         h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 36px;
+            margin-bottom: 40px;
             text-align: center;
             color: #f59e0b;
         }
         
+        /* Services */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-            margin-bottom: 60px;
         }
         
         .service {
@@ -77,12 +126,13 @@
             border: 1px solid #334155;
             border-radius: 16px;
             padding: 30px;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .service:hover {
             transform: translateY(-5px);
             border-color: #f59e0b;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
         }
         
         .service h3 {
@@ -91,11 +141,40 @@
             font-size: 22px;
         }
         
+        /* Dashboard Stats */
+        #dashboard {
+            background: #1e293b;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+        
+        /* Contact */
         .contact-box {
             background: #1e293b;
             border: 2px solid #f59e0b;
             border-radius: 20px;
-            padding: 40px;
+            padding: 50px;
             text-align: center;
         }
         
@@ -130,12 +209,6 @@
             transform: scale(1.05);
         }
         
-        .phone {
-            font-size: 20px;
-            color: #e2e8f0;
-            margin-top: 16px;
-        }
-        
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -143,56 +216,108 @@
             border-top: 1px solid #334155;
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
             h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
             h2 {
-                font-size: 26px;
+                font-size: 28px;
+            }
+            .nav-links li:nth-child(3) {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="logo">T</div>
-        <h1>Taringey Tech ltd Contracting</h1>
-        <p class="subtitle">Professional building, renovation, and contracting services. 
-        From houses to commercial projects, we build it right the first time.</p>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Taringey</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="home">
+        <div class="container">
+            <div class="logo">T</div>
+            <h1>Taringey Tech Contracting</h1>
+            <p class="subtitle">Professional building, renovation, and contracting services across Tanzania. 
+            We turn your vision into solid structures, on time and on budget.</p>
+            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        </div>
     </section>
     
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service">
-                <h3>House Construction</h3>
-                <p>Full home building from foundation to finish. Residential projects of all sizes with quality materials and skilled labor.</p>
-            </div>
-            <div class="service">
-                <h3>Renovation & Remodeling</h3>
-                <p>Update your home or office. Kitchens, bathrooms, extensions, and full property renovations handled professionally.</p>
-            </div>
-            <div class="service">
-                <h3>Project Planning</h3>
-                <p>Need plans and estimates? We provide detailed quotes, timelines, and project management from start to finish.</p>
+    <section id="services">
+        <div class="container">
+            <h2>What We Build</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>House Construction</h3>
+                    <p>Complete residential construction from foundation to finishing. Quality materials, licensed builders, guaranteed work.</p>
+                </div>
+                <div class="service">
+                    <h3>Renovation & Remodeling</h3>
+                    <p>Modernize your home or office. Kitchens, bathrooms, extensions, and full property makeovers handled end-to-end.</p>
+                </div>
+                <div class="service">
+                    <h3>Commercial Projects</h3>
+                    <p>Offices, shops, warehouses, and commercial buildings built to code with fast turnaround times.</p>
+                </div>
             </div>
         </div>
-        
-        <div class="contact-box">
-            <h2>Start Your Project</h2>
-            <p>Get a free quote. Tell me about your project and I'll get back to you within 24 hours.</p>
-            
-            <div class="contact-buttons">
-                <a href="mailto:bulusdlama2022@gmail.com" class="btn btn-primary">Email Me</a>
-                <a href="https://wa.me/2348135584889" class="btn btn-whatsapp">WhatsApp</a>
+    </section>
+    
+    <section id="dashboard">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
             </div>
-            
-            <div class="phone">Call: +2348135584889</div>
         </div>
-    </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Start Your Project Today</h2>
+                <p>Get a free quote within 24 hours. No obligation, just honest pricing.</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:bulusdlama2023@gmail.com" class="btn btn-primary">Email Us</a>
+                    <a href="https://wa.me/2348135584889" class="btn btn-whatsapp">WhatsApp</a>
+                </div>
+                
+                <p style="margin-top: 20px; color: #94a3b8;">Call: +255 712 345 678</p>
+            </div>
+        </div>
+    </section>
     
     <div class="footer">
-        © 2026 Taringey Tech Contracting. All rights reserved.
+        © 2026 Taringey Tech Contracting. Built for quality and trust.
     </div>
 </body>
 </html>
